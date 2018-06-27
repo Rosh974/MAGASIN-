@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -22,13 +22,13 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="public/js/script.js"></script>
+    <script src="/js/script.js"></script>
 
 
     <!-- Logo Nav du site -->
     <nav class="navbar justify-content-center">
         <a class="navbar-brand" href="#">
-            <img src="public/img/RedBullLogo.png" width="115" height="100" class="d-inline-block align-top" alt="">
+            <img src="/img/RedBullLogo.png" width="125" height="125" class="d-inline-block align-top" alt="">
         </a>
 
     </nav>
@@ -39,13 +39,13 @@
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="public/img/food.jpg" alt="First slide">
+                    <img class="d-block w-100" src="/img/food.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="public/img/food2.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="/img/food2.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="public/img/food3.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="/img/food3.jpg" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -63,6 +63,18 @@
     </header>
 
     <main>
+       <div class="container">
+        <form action="">
+            <input type="text" id="nomproduit" placeholder="entrer nom produit">
+            <input type="text" id="typeproduit" placeholder="entrer type produit">
+            <input type="text" id="prixproduit" placeholder="entrer prix produit">
+            <input type="text" id="qtproduit" placeholder="entrer qauntité produit">
+        </form>
+        <button class="btn btn-primary">
+            <span>ajout</span>
+        </button>
+
+    </div>
 
 
 

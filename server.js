@@ -37,7 +37,7 @@ app.get('/affiche_produits', function (req, res) {
 
 
 app.get('/', function(req,res){
-    res.sendFile(__dirname + '')
+    res.sendFile(__dirname + '/index.html')
 });
 
 
