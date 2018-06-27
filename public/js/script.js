@@ -10,7 +10,7 @@ $(document).ready(function () {
 
             console.log(data);
             for (var i = 0; i < data.length; i++) {
-                $('ul').append('<li>Type : ' + data[i].type + " Produit : " + data[i].nom + " Prix : " + data[i].prix + " Quantité : " + data[i].quantite + '</li>');
+                $('ul').append('<li class="list-group-item">Type : ' + data[i].type + " Produit : " + data[i].nom + " Prix : " + data[i].prix + " Quantité : " + data[i].quantite + '</li>');
             }
         }
     })
