@@ -1,7 +1,7 @@
 const express = require('express');
 var app = express();
 var ejs = require('ejs');
-var port = 3013;
+var port = 3048;
 var MongoClient = require("mongodb").MongoClient;
 var mongoose = require('mongoose');
 var url = "mongodb://localhost:27017/magasin";
@@ -94,6 +94,7 @@ app.post('/get_produits', function (req, res) {
     });
   });
 
+  
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html')
 });
