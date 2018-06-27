@@ -4,7 +4,7 @@
 $(document).ready(function () {
 
     $.ajax({
-        url: 'http://localhost:3048/affiche_produits',
+        url: 'http://localhost:3088/affiche_produits',
         method: "GET",
         success: function (data) {
 
