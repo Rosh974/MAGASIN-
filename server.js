@@ -1,10 +1,17 @@
 const express = require('express');
 var app = express();
-var port = 3013
+var ejs = require('ejs');
+var port = 3048;
+var MongoClient = require("mongodb").MongoClient;
+
+var url = "mongodb://localhost:27017/"+port;
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
+app.get('/', function (request, response) {
+    response.sendFile(__dirname + '/index.html')
+})
 
 
 
@@ -21,7 +28,7 @@ app.get('/affiche_produits', function (req, res) {
         if (err) throw err;
         tab = result;
         res.json(tab);
-        db.close();
+        database.close();
   
       });
     });
@@ -29,8 +36,11 @@ app.get('/affiche_produits', function (req, res) {
   
 
 
+app.get('/', function(req,res){
+    res.sendFile(__dirname + '')
+});
+
 
 app.listen(port, function(){
     console.log('on')
-})
-
+});
