@@ -4,7 +4,7 @@
 $(document).ready(function () {
 
     $.ajax({
-        url: 'http://localhost:3088/affiche_produits',
+        url: 'http://localhost:3013/affiche_produits',
         method: "GET",
         success: function (data) {
 
@@ -27,7 +27,7 @@ $( "#send" ).click(function() {
     console.log(prix)
     var quantité = $("#qtproduit").val();
     console.log(quantité)
- var url = "http://localhost:3088/get_produits"
+ var url = "http://localhost:3013/get_produits"
  $.post( url, {nom: nom,type: type, prix: prix, quantité: quantité}, function( data ) {
      console.log(data);
   });
