@@ -19,18 +19,18 @@ $(document).ready(function () {
 
     $("#send").click(function () {
 
-        var nom = $('#nomproduit').val();
-        console.log(nom)
-        var type = $('#typeproduit').val();
-        console.log(type)
-        var prix = $("#prixproduit").val();
-        console.log(prix)
-        var quantité = $("#qtproduit").val();
-        console.log(quantité)
-        var url = "http://localhost:3048/get_produits"
-        $.post(url, { nom: nom, type: type, prix: prix, quantité: quantité }, function (data) {
-            console.log(data);
-        });
+    var nom = $('#nomproduit').val();   
+    console.log(nom)
+    var type = $('#typeproduit').val();   
+    console.log(type)
+    var prix = $("#prixproduit").val();
+    console.log(prix)
+    var quantité = $("#qtproduit").val();
+    console.log(quantité)
+ var url = "http://localhost:3013/get_produits"
+ $.post( url, {nom: nom,type: type, prix: prix, quantité: quantité}, function( data ) {
+     console.log(data);
+  });
 
     });
 

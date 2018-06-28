@@ -26,6 +26,13 @@ app.get('/', function (request, response) {
     response.sendFile(__dirname + '/index.html')
 })
 
+var produitsSchema = mongoose.Schema({
+    nom: String,
+    type: String,
+    prix: Number,
+    quantite: Number
+});
+
 
 // Afficher la liste des produits
 
@@ -58,6 +65,13 @@ app.get('/affiche_produits', function (req, res) {
     db.once('open', function () {
         console.log("Connexion à la base OK");
     });
+
+    // var produitsSchema = mongoose.Schema({
+    //     nom: String,
+    //     type: String,
+    //     prix: Number,
+    //     quantite: Number
+    // });
 
     var produits = mongoose.model('produits', produitsSchema);
 
@@ -120,28 +134,69 @@ app.put('/modifie_produits', function (req, res) {
 
 // fonction ajout de produits
 
-app.post('/get_produits', function (req, res) {
-    var nom = req.body.nom
-    console.log(nom)
-    var type = req.body.type
-    console.log(type)
-    var prix = req.body.prix
-    console.log(prix)
-    var quantité = req.body.quantité
-    console.log(quantité)
-    MongoClient.connect(url, function (err, database) {
-        if (err) throw err;
-        console.log("Connecté à la base de données");
-        var dbo = database.db("magasin");
-        var newproduit = { nom: nom, type: type, prix: prix, quantite: quantité };
-        dbo.collection("produits").insertOne(newproduit, function (err, res) {
-            if (err) throw err;
-            console.log("1 document inserer");
-            database.close();
+// app.post('/get_produits', function (req, res) {
+//     var nom = req.body.nom
+//     console.log(nom)
+//     var type = req.body.type
+//     console.log(type)
+//     var prix = req.body.prix
+//     console.log(prix)
+//     var quantité = req.body.quantité
+//     console.log(quantité)
+//     MongoClient.connect(url, function (err, database) {
+//         if (err) throw err;
+//         console.log("Connecté à la base de données");
+//         var dbo = database.db("magasin");
+//         var newproduit = { nom: nom, type: type, prix: prix, quantite: quantité };
+//         dbo.collection("produits").insertOne(newproduit, function (err, res) {
+//             if (err) throw err;
+//             console.log("1 document inserer");
+//             database.close();
 
-        });
+//         });
+//     });
+// });
+
+app.post('/get_produits', function (req, res) {
+        var nom_recu = req.body.nom
+        console.log(nom_recu)
+        var type_recu = req.body.type
+        console.log(type_recu)
+        var prix_recu = req.body.prix
+        console.log(prix_recu)
+        var quantite_recu = req.body.quantité
+        console.log(quantite_recu)
+    mongoose.connect(url, function (err) {
+        if (err) { throw err; }
     });
-});
+    var db = mongoose.connection;
+
+    db.on("error", console.error.bind(console, "connection error"));
+    db.once("open", function (callback) {
+        console.log("Connection succeeded.");
+    });
+
+    var produits = mongoose.model("produits", produitsSchema);
+
+    var newprdadd = new produits({
+        nom: nom_recu,
+        type: type_recu,
+        prix: prix_recu,
+        quantite: quantite_recu
+    });
+
+    newprdadd.save(function (error) {
+        console.log("Your newprdadd has been saved!");
+        if (error) {
+            console.error(error);
+        }
+        res.send("ok")
+    });
+})
+
+
+
+
 
 
 app.get('/', function (req, res) {
